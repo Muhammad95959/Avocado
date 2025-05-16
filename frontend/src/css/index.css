@@ -1,0 +1,102 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Outfit;
+}
+
+body {
+  min-height: 100vh;
+}
+
+a,
+button {
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  @media (min-width: 768px) {
+    width: 750px;
+  }
+  @media (min-width: 992px) {
+    width: 970px;
+  }
+  @media (min-width: 1200px) {
+    width: 1170px;
+  }
+  @media (min-width: 1500px) {
+    width: 1470px;
+  }
+}
+
+/* start navbar */
+.navbar {
+  .container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    ul.navbar-menu {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      color: #5a5a5a;
+      font-size: 20px;
+      li {
+        position: relative;
+        &.active::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          bottom: -5px;
+          left: 0;
+          height: 2px;
+          width: 100%;
+          background-color: #5a5a5a;
+        }
+      }
+    }
+    .right-side {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      .search-icon {
+        cursor: pointer;
+      }
+      .cart-icon {
+        cursor: pointer;
+        position: relative;
+        .dot {
+          position: absolute;
+          top: -5px;
+          right: -10px;
+          border-radius: 50%;
+          width: 10px;
+          height: 10px;
+          background-color: rgba(255, 76, 36, 1);
+        }
+      }
+      button.sign-in {
+        font-size: 18px;
+        background-color: transparent;
+        padding: 8px 32px;
+        border-radius: 20px;
+        color: #666;
+        border: 1px solid #666;
+        transition: background-color 0.3s;
+        &:hover {
+          background-color: rgba(255, 76, 36, 0.1);
+        }
+      }
+    }
+  }
+}
+/* end navbar */
