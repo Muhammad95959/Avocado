@@ -36,6 +36,15 @@ button {
   }
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 /* start navbar */
 .navbar {
   .container {
@@ -84,7 +93,7 @@ button {
           background-color: rgba(255, 76, 36, 1);
         }
       }
-      button.sign-in {
+      button.sign-in-btn {
         font-size: 18px;
         background-color: transparent;
         padding: 8px 32px;
@@ -100,3 +109,43 @@ button {
   }
 }
 /* end navbar */
+
+/* start header */
+.header {
+  .container {
+    margin-top: 30px;
+    background-image: url("../assets/header_img.png");
+    background-position: center;
+    background-size: calc(100% - 30px) 100%;
+    background-repeat: no-repeat;
+    height: 650px;
+    padding: 120px;
+    .content {
+      animation: fadeIn 3s;
+      h1 {
+        color: white;
+        font-size: 4.5vw;
+        font-weight: 500;
+        max-width: 750px;
+        margin-top: 40px;
+      }
+      p {
+        color: white;
+        font-size: 18px;
+        font-weight: 500;
+        max-width: 750px;
+        margin-top: 20px;
+      }
+      button.view-menu-btn {
+        margin-top: 30px;
+        padding: 18px 42px;
+        font-size: 20px;
+        color: #5a5a5a;
+        background-color: white;
+        border: none;
+        border-radius: 40px;
+      }
+    }
+  }
+}
+/* end header */
