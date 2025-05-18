@@ -63,6 +63,7 @@ button {
       li {
         position: relative;
         cursor: pointer;
+        user-select: none;
         &.active::after {
           content: "";
           position: absolute;
