@@ -280,3 +280,72 @@ button {
   }
 }
 /* end top-dishes section */
+
+/* start footer */
+.footer {
+  margin-top: 100px;
+  background-color: #323232;
+  color: #ddd;
+  .container {
+    padding-top: 60px;
+    padding-bottom: 40px;
+    .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 100px;
+      .column-one {
+        p {
+          margin-top: 20px;
+          max-width: 700px;
+          font-size: 18px;
+        }
+        .social {
+          margin-top: 20px;
+          display: flex;
+          align-items: center;
+          gap: 15px;
+        }
+      }
+      .column-two {
+        h3 {
+          font-size: 32px;
+          text-transform: uppercase;
+          color: white;
+        }
+        ul {
+          margin-top: 20px;
+          list-style: none;
+          display: grid;
+          gap: 10px;
+          font-size: 18px;
+        }
+      }
+      .column-three {
+        h3 {
+          font-size: 32px;
+          text-transform: uppercase;
+          color: white;
+        }
+        p {
+          font-size: 18px;
+          &:first-of-type {
+            margin-top: 20px;
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+    hr {
+      margin-top: 60px;
+    }
+    p.copy {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 18px;
+      a {
+        color: cyan;
+      }
+    }
+  }
+}
+/* end footer */
