@@ -8,6 +8,10 @@ const menuChoices = document.querySelector(".menu-choices") as HTMLDivElement;
 // handle navbar menu items click event
 navbarMenuItems.forEach((li) => {
   li.addEventListener("click", () => {
+    if (li.classList.contains("active")) {
+      li.classList.remove("active");
+      return;
+    }
     navbarMenuItems.forEach((val) => val.classList.remove("active"));
     li.classList.add("active");
   });
@@ -17,6 +21,14 @@ navbarMenuItems.forEach((li) => {
 menu_list.forEach((val) => {
   const menuChoice = document.createElement("div");
   menuChoice.classList.add("menu-choice");
+  menuChoice.addEventListener("click", () => {
+    if (menuChoice.classList.contains("active")) {
+      menuChoice.classList.remove("active");
+      return;
+    }
+    [...menuChoices.children].forEach((val) => val.classList.remove("active"));
+    menuChoice.classList.add("active");
+  });
   menuChoices.appendChild(menuChoice);
   const img = document.createElement("img");
   img.src = val.menu_image;
