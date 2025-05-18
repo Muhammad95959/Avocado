@@ -177,8 +177,8 @@ button {
         display: none;
       }
       .menu-choice {
-        cursor: pointer;
         img {
+          cursor: pointer;
           width: 7vw;
           min-width: 80px;
           border-radius: 50%;
