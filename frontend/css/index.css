@@ -5,6 +5,7 @@
   font-family: Outfit;
   font-weight: 500;
   outline: none;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -54,15 +55,25 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    .logo {
+      img {
+        max-width: 100%;
+      }
+      @media (max-width: 768px) {
+        width: 120px;
+      }
+    }
     ul.navbar-menu {
       display: flex;
       gap: 20px;
       list-style: none;
       color: #5a5a5a;
       font-size: 20px;
+      @media (max-width: 992px) {
+        display: none;
+      }
       li {
         position: relative;
-        cursor: pointer;
         user-select: none;
         &.active::after {
           content: "";
@@ -80,12 +91,27 @@ button {
       display: flex;
       gap: 40px;
       align-items: center;
+      @media (max-width: 768px) {
+        gap: 20px;
+      }
       .search-icon {
         cursor: pointer;
+        img {
+          max-width: 100%;
+        }
+        @media (max-width: 768px) {
+          width: 20px;
+        }
       }
       .cart-icon {
         cursor: pointer;
         position: relative;
+        img {
+          max-width: 100%;
+        }
+        @media (max-width: 768px) {
+          width: 20px;
+        }
         .dot {
           position: absolute;
           top: -5px;
@@ -107,6 +133,10 @@ button {
         &:hover {
           background-color: rgba(255, 76, 36, 0.1);
         }
+        @media (max-width: 768px) {
+          font-size: 16px;
+          padding: 6px 20px;
+        }
       }
     }
   }
@@ -116,25 +146,42 @@ button {
 /* start header */
 .header {
   margin-top: 30px;
+  margin-left: 15px;
+  margin-right: 15px;
   .container {
     background-image: url("../assets/header_img.png");
     background-position: center;
-    background-size: calc(100% - 30px) 100%;
+    background-size: 100%;
     background-repeat: no-repeat;
-    height: 650px;
+    border-radius: 20px;
     padding: 120px;
+    @media (max-width: 1500px) {
+      padding: 70px;
+    }
+    @media (max-width: 992px) {
+      padding: 30px;
+    }
+    @media (max-width: 768px) {
+      padding: 60px;
+    }
     .content {
-      max-width: 750px;
+      max-width: 62%;
       animation: fadeIn 3s;
       h1 {
         color: white;
         font-size: 4.5vw;
         margin-top: 40px;
+        @media (max-width: 992px) {
+          margin-top: 10px;
+        }
       }
       p {
         color: white;
-        font-size: 18px;
+        font-size: min(18px, 2vw);
         margin-top: 20px;
+        @media (max-width: 992px) {
+          display: none;
+        }
       }
       button.view-menu-btn {
         margin-top: 30px;
@@ -147,6 +194,15 @@ button {
         transition: transform 0.3s;
         &:hover {
           transform: scale(1.03);
+        }
+        @media (max-width: 992px) {
+          font-size: 16px;
+          padding: 10px 24px;
+          margin-top: 15px;
+        }
+        @media (max-width: 768px) {
+          font-size: 2vw;
+          padding: 6px 20px;
         }
       }
     }
@@ -293,6 +349,10 @@ button {
       display: flex;
       justify-content: space-between;
       gap: 100px;
+      @media (max-width: 992px) {
+        flex-direction: column;
+        gap: 40px;
+      }
       .column-one {
         p {
           margin-top: 20px;
