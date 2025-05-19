@@ -1,8 +1,19 @@
 import { menu_list, food_list } from "./utils/assets";
 
-const navbarMenuItems = Array.from(
-  document.querySelectorAll(".navbar-menu li") as NodeListOf<HTMLLIElement>,
-);
+const navbarMenuItems = [...document.querySelectorAll(".navbar-menu li")] as HTMLLIElement[];
+const signInBtn = document.querySelector(".navbar .sign-in-btn") as HTMLButtonElement;
+const loginPopup = document.querySelector(".login-popup") as HTMLDivElement;
+const loginCloseBtns = [
+  ...document.querySelectorAll(".login-popup .close-btn"),
+] as HTMLImageElement[];
+const loginPopupSubmitBtns = [
+  ...document.querySelectorAll(".login-popup input[type='submit']"),
+] as HTMLInputElement[];
+const changeLoginPopupStateBtns = [
+  ...document.querySelectorAll(".login-popup .change span"),
+] as HTMLSpanElement[];
+const loginForm = document.querySelector(".login-popup .login-form") as HTMLFormElement;
+const signupForm = document.querySelector(".login-popup .signup-form") as HTMLFormElement;
 const menuChoices = document.querySelector(".menu-choices") as HTMLDivElement;
 const topDishesCardsContainer = document.querySelector(".top-dishes .cards") as HTMLDivElement;
 let category = "All";
@@ -19,6 +30,21 @@ navbarMenuItems.forEach((li) => {
   });
 });
 
+// handle login popup
+signInBtn.addEventListener("click", () => loginPopup.classList.remove("hidden"));
+loginPopupSubmitBtns.forEach((val) =>
+  val.addEventListener("click", () => loginPopup.classList.remove("hidden")),
+);
+loginCloseBtns.forEach((val) =>
+  val.addEventListener("click", () => loginPopup.classList.add("hidden")),
+);
+changeLoginPopupStateBtns.forEach((val) =>
+  val.addEventListener("click", () => {
+    loginForm.classList.toggle("hidden");
+    signupForm.classList.toggle("hidden");
+  }),
+);
+
 // dynamically add menu-choices in explore menu
 menu_list.forEach((val) => {
   const menuChoice = document.createElement("div");
@@ -27,6 +53,7 @@ menu_list.forEach((val) => {
   menuChoices.appendChild(menuChoice);
   const img = document.createElement("img");
   img.src = val.menu_image;
+  img.tabIndex = 0;
   img.addEventListener("click", (ev) => {
     changeCategory(ev.target);
     if (menuChoice.classList.contains("active")) {

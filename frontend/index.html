@@ -13,6 +13,44 @@
     <link href="css/index.css" rel="stylesheet" />
   </head>
   <body>
+    <!-- start login popup -->
+    <div class="login-popup hidden">
+      <form action="#" class="login-form">
+        <div class="row">
+          <h2>Login</h2>
+          <img class="close-btn" src="assets/icon_cross.png" tabindex="0" />
+        </div>
+        <div class="inputs">
+          <input type="email" name="email" placeholder="Your email"/>
+          <input type="password" name="password" placeholder="Your password"/>
+          <input type="submit" name="login" value="Login" />
+        </div>
+        <label for="privacy-policy">
+          <input type="checkbox" id="privacy-policy" />
+          <p>By continuing, I agree to the terms of use & privacy policy</p>
+        </label>
+        <p class="change">Create a new account? <span tabindex="0">Click here</span></p>
+      </form>
+      <form class="signup-form hidden">
+        <div class="row">
+          <h2>Sign Up</h2>
+          <img class="close-btn" src="assets/icon_cross.png" tabindex="0" />
+        </div>
+        <div class="inputs">
+          <input type="text" name="name" placeholder="Your name"/>
+          <input type="email" name="email" placeholder="Your email"/>
+          <input type="password" name="password" placeholder="Your password"/>
+          <input type="submit" name="signup" value="Create account" />
+        </div>
+        <label for="privacy-policy">
+          <input type="checkbox" id="privacy-policy" />
+          <p>By continuing, I agree to the terms of use & privacy policy</p>
+        </label>
+        <p class="change">Already have an account? <span tabindex="0">Login here</span></p>
+      </form>
+    </div>
+    <!-- end login popup -->
+
     <!-- start navbar -->
     <div class="navbar">
       <div class="container">

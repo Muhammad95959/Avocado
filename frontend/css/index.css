@@ -143,6 +143,83 @@ button {
 }
 /* end navbar */
 
+/* start login popup */
+.login-popup {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  form {
+    background-color: white;
+    border-radius: 10px;
+    width: fit-content;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: fadeIn 1s;
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      h2 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      img.close-btn {
+        cursor: pointer;
+      }
+    }
+    .inputs {
+      margin-top: 35px;
+      display: grid;
+      gap: 25px;
+      input {
+        border: 1px solid #ccc;
+        padding: 15px;
+        font-size: 18px;
+        border-radius: 6px;
+        max-width: 350px;
+        &[type="submit"] {
+          background-color: rgba(255, 76, 36, 1);
+          border: none;
+          color: white;
+          font-size: 20px;
+          cursor: pointer;
+        }
+      }
+    }
+    label {
+      display: flex;
+      margin-top: 25px;
+      max-width: 350px;
+      p {
+        margin-left: 10px;
+        font-size: 18px;
+        color: #999;
+      }
+    }
+    p.change {
+      margin-top: 25px;
+      color: #999;
+      font-size: 18px;
+      span {
+        color: rgba(255, 76, 36, 1);
+        cursor: pointer;
+      }
+    }
+    &.hidden {
+      display: none;
+    }
+  }
+  &.hidden {
+    display: none;
+  }
+}
+/* end login popup */
+
 /* start header */
 .header {
   margin-top: 30px;
