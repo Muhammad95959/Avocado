@@ -77,85 +77,60 @@
     </div>
     <!-- end navbar -->
 
-    <!-- start header -->
-    <div class="header">
+    <!-- start cart-items section -->
+    <div id="cart-items" class="cart-items">
       <div class="container">
-        <div class="content">
-          <h1>Order your favourite food here</h1>
-          <p>
-            Choose from a diverse menu featuring a delectable array of dishes crafted with the
-            finest ingredients and culinary expertise. Our mision is to satisfy your cravings and
-            elevate your dining experience, one delicious meal at a time.
-          </p>
-          <button class="view-menu-btn">View Menu</button>
+        <table>
+          <thead>
+            <td>Items</td>
+            <td>Title</td>
+            <td>Price</td>
+            <td>Quantity</td>
+            <td>Total</td>
+            <td>Remove</td>
+          </thead>
+          <tr>
+            <td class="items"><img src="assets/food_01.png" /></td>
+            <td class="title">Greek salad</td>
+            <td class="price">$12</td>
+            <td class="quantity">1</td>
+            <td class="total">$12</td>
+            <td class="remove">x</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <!-- end cart-items section -->
+
+    <!-- start cart-totals -->
+    <div id="cart-totals" class="cart-totals">
+      <div class="container">
+        <div class="totals">
+          <h2>Cart Totals</h2>
+          <div class="row">
+            <p>Subtotal</p>
+            <p class="price">$0</p>
+          </div>
+          <div class="row">
+            <p>Delivery Fee</p>
+            <p class="price">$2</p>
+          </div>
+          <div class="row">
+            <p class="bold">Total</p>
+            <p class="price">$0</p>
+          </div>
+          <button>PROCEED TO CHECKOUT</button>
+        </div>
+        <div class="promo">
+          <p>if you have a promo code, Enter it here</p>
+          <div class="input">
+            <input type="text" placeholder="promo code" />
+            <button class="submit">Submit</button>
+          </div>
         </div>
       </div>
     </div>
-    <!-- end header -->
-
-    <!-- start explore-menu section -->
-    <div id="explore-menu" class="explore-menu">
-      <div class="container">
-        <h2>Explore our menu</h2>
-        <p>
-          Choose from a diverse menu featuring a delectable array of dishes. Our mission is to
-          satisfy your cravings and elevate your dining experience, one delicious meal at a time.
-        </p>
-        <div class="menu-choices"></div>
-        <hr />
-      </div>
-    </div>
-    <!-- end explore-menu section -->
-
-    <!-- start top-dishes section -->
-    <div class="top-dishes">
-      <div class="container">
-        <h2>Top dishes near you</h2>
-        <div class="cards"></div>
-      </div>
-    </div>
-    <!-- end top-dishes section -->
-
-    <!-- start footer -->
-    <div id="footer" class="footer">
-      <div class="container">
-        <div class="row">
-          <div class="column-one">
-            <img src="assets/logo.png" />
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt minima itaque
-              voluptas maxime. Iusto quis vitae sed nisi molestias ab, obcaecati libero similique
-              voluptatum voluptates, magni a incidunt officiis officia?
-            </p>
-            <div class="social">
-              <img src="assets/icon_facebook.png" />
-              <img src="assets/icon_twitter.png" />
-              <img src="assets/icon_linkedin.png" />
-            </div>
-          </div>
-          <div class="column-two">
-            <h3>company</h3>
-            <ul>
-              <li>Home</li>
-              <li>About us</li>
-              <li>Delivery</li>
-              <li>Privacy policy</li>
-            </ul>
-          </div>
-          <div class="column-three">
-            <h3>get in touch</h3>
-            <p>+1-212-456-7890</p>
-            <p>contact@tomato.com</p>
-          </div>
-        </div>
-        <hr />
-        <p class="copy">
-          Copyright 2025 &copy; Tomato.com - Created by
-          <a target="_blank" href="https://github.com/Muhammad95959">Muhammad Hefzey</a>
-        </p>
-      </div>
-    </div>
-    <!-- end footer -->
+    <!-- end cart-totals -->
   </body>
   <script type="module" src="dist/utils/assets.js"></script>
   <script type="module" src="dist/index.js"></script>

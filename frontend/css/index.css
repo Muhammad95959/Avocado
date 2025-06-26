@@ -486,3 +486,103 @@ button {
   }
 }
 /* end footer */
+
+/* ================= */
+/* === cart.html === */
+/* ================= */
+
+/* start cart-items */
+.cart-items {
+  .container {
+    table {
+      margin-top: 80px;
+      width: 100%;
+      /* border-spacing: 0 30px; */
+      tr {
+        td {
+          font-size: 18px;
+          font-weight: 400;
+          padding: 10px 0;
+          border-bottom: 1px solid #ddd;
+          img {
+            width: 70px;
+          }
+        }
+      }
+      thead {
+        td {
+          font-size: 18px;
+          color: #888;
+          padding-bottom: 30px;
+        }
+      }
+    }
+  }
+}
+/* end cart-items */
+
+/* start cart-totals */
+.cart-totals {
+  margin-top: 80px;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    .totals {
+      width: 45%;
+      h2 {
+        font-weight: bold;
+        font-size: 30px;
+        margin-bottom: 10px;
+      }
+      .row {
+        padding: 10px 0;
+        font-size: 18px;
+        color: #777;
+        display: flex;
+        justify-content: space-between;
+        &:not(:last-of-type) {
+          border-bottom: 1px solid #ddd;
+        }
+      }
+      button {
+        background-color: rgba(255, 76, 36, 1);
+        border: none;
+        color: white;
+        font-size: 16px;
+        padding: 15px 40px;
+        border-radius: 6px;
+        margin-top: 10px;
+      }
+    }
+    .promo {
+      width: 45%;
+      p {
+        font-size: 18px;
+        color: #777;
+      }
+      div.input {
+        display: flex;
+        margin-top: 15px;
+        background-color: #eee;
+        border-radius: 6px;
+        input {
+          border: none;
+          padding: 15px;
+          font-size: 16px;
+          width: 100%;
+          border-radius: 6px;
+          background-color: #eee;
+        }
+        button.submit {
+          font-size: 16px;
+          background-color: black;
+          border: none;
+          color: white;
+          padding: 15px 60px;
+          border-radius: 6px;
+        }
+      }
+    }
+  }
+}
+/* end cart-totals */
