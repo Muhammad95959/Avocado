@@ -507,6 +507,9 @@ button {
           img {
             width: 70px;
           }
+          &.remove {
+            cursor: pointer;
+          }
         }
       }
       thead {
@@ -524,6 +527,7 @@ button {
 /* start cart-totals */
 .cart-totals {
   margin-top: 80px;
+  margin-bottom: 80px;
   .container {
     display: flex;
     justify-content: space-between;
@@ -552,6 +556,9 @@ button {
         padding: 15px 40px;
         border-radius: 6px;
         margin-top: 10px;
+        &:hover {
+          background-color: #f32;
+        }
       }
     }
     .promo {

@@ -76,7 +76,7 @@ function addTopDishes() {
   food_list.forEach((val) => {
     const card = document.createElement("div");
     card.classList.add("card");
-    card.dataset.cartItemsCount = String(0);
+    card.dataset.cartItemsCount = sessionStorage.getItem(`cartItemsCount-${val._id}`) || "0";
     if (category === "All" || category === val.category) {
       topDishesCardsContainer.appendChild(card);
     } else return;
@@ -130,27 +130,31 @@ function addTopDishes() {
     info.appendChild(desc);
     const price = document.createElement("p");
     price.classList.add("price");
-    price.textContent = `$${val.price}`;
     info.appendChild(price);
+    price.textContent = `$${val.price}`;
     addIcon.addEventListener("click", () => {
-      card.dataset.cartItemsCount = String(1);
+      card.dataset.cartItemsCount = "1";
       addIcon.classList.add("hidden");
       cartHandler.classList.remove("hidden");
-      cartItemsCount.textContent = String(1);
+      cartItemsCount.textContent = "1";
+      sessionStorage.setItem(`cartItemsCount-${val._id}`, "1");
     });
     decIcon.addEventListener("click", () => {
-      if (card.dataset.cartItemsCount === String(1)) {
+      if (card.dataset.cartItemsCount === "1") {
         addIcon.classList.remove("hidden");
         cartHandler.classList.add("hidden");
-        cartItemsCount.textContent = String(0);
+        cartItemsCount.textContent = "0";
+        sessionStorage.removeItem(`cartItemsCount-${val._id}`);
       } else {
         card.dataset.cartItemsCount = String(parseInt(card.dataset.cartItemsCount as string) - 1);
         cartItemsCount.textContent = card.dataset.cartItemsCount;
+        sessionStorage.setItem(`cartItemsCount-${val._id}`, card.dataset.cartItemsCount);
       }
     });
     incIcon.addEventListener("click", () => {
       card.dataset.cartItemsCount = String(parseInt(card.dataset.cartItemsCount as string) + 1);
       cartItemsCount.textContent = card.dataset.cartItemsCount;
+      sessionStorage.setItem(`cartItemsCount-${val._id}`, card.dataset.cartItemsCount);
     });
   });
 }

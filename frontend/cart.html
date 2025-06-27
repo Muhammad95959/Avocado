@@ -25,8 +25,8 @@
           <input type="password" name="password" placeholder="Your password" />
           <input type="submit" name="login" value="Login" />
         </div>
-        <label for="privacy-policy">
-          <input type="checkbox" id="privacy-policy" />
+        <label for="login-privacy-policy">
+          <input type="checkbox" id="login-privacy-policy" />
           <p>By continuing, I agree to the terms of use & privacy policy</p>
         </label>
         <p class="change">Create a new account? <span tabindex="0">Click here</span></p>
@@ -42,8 +42,8 @@
           <input type="password" name="password" placeholder="Your password" />
           <input type="submit" name="signup" value="Create account" />
         </div>
-        <label for="privacy-policy">
-          <input type="checkbox" id="privacy-policy" />
+        <label for="signup-privacy-policy">
+          <input type="checkbox" id="signup-privacy-policy" />
           <p>By continuing, I agree to the terms of use & privacy policy</p>
         </label>
         <p class="change">Already have an account? <span tabindex="0">Login here</span></p>
@@ -89,14 +89,7 @@
             <td>Total</td>
             <td>Remove</td>
           </thead>
-          <tr>
-            <td class="items"><img src="assets/food_01.png" /></td>
-            <td class="title">Greek salad</td>
-            <td class="price">$12</td>
-            <td class="quantity">1</td>
-            <td class="total">$12</td>
-            <td class="remove">x</td>
-          </tr>
+          <tbody></tbody>
         </table>
       </div>
     </div>
@@ -109,15 +102,15 @@
           <h2>Cart Totals</h2>
           <div class="row">
             <p>Subtotal</p>
-            <p class="price">$0</p>
+            <p class="subtotal-price">$0</p>
           </div>
           <div class="row">
             <p>Delivery Fee</p>
-            <p class="price">$2</p>
+            <p class="delivery-price">$2</p>
           </div>
           <div class="row">
             <p class="bold">Total</p>
-            <p class="price">$0</p>
+            <p class="total-price">$0</p>
           </div>
           <button>PROCEED TO CHECKOUT</button>
         </div>
@@ -133,5 +126,5 @@
     <!-- end cart-totals -->
   </body>
   <script type="module" src="dist/utils/assets.js"></script>
-  <script type="module" src="dist/index.js"></script>
+  <script type="module" src="dist/cart.js"></script>
 </html>
