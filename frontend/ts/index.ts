@@ -138,6 +138,7 @@ function addTopDishes() {
       cartHandler.classList.remove("hidden");
       cartItemsCount.textContent = "1";
       sessionStorage.setItem(`cartItemsCount-${val._id}`, "1");
+      handleCartDot();
     });
     decIcon.addEventListener("click", () => {
       if (card.dataset.cartItemsCount === "1") {
@@ -150,13 +151,26 @@ function addTopDishes() {
         cartItemsCount.textContent = card.dataset.cartItemsCount;
         sessionStorage.setItem(`cartItemsCount-${val._id}`, card.dataset.cartItemsCount);
       }
+      handleCartDot();
     });
     incIcon.addEventListener("click", () => {
       card.dataset.cartItemsCount = String(parseInt(card.dataset.cartItemsCount as string) + 1);
       cartItemsCount.textContent = card.dataset.cartItemsCount;
       sessionStorage.setItem(`cartItemsCount-${val._id}`, card.dataset.cartItemsCount);
+      handleCartDot();
     });
   });
+}
+
+handleCartDot();
+function handleCartDot() {
+  const dot = document.querySelector(".cart-icon .dot") as HTMLDivElement;
+  for (let food of food_list) {
+    const cartItemsCount = sessionStorage.getItem(`cartItemsCount-${food._id}`);
+    if (cartItemsCount && +cartItemsCount > 0) dot.style.visibility = "visible";
+    else dot.style.visibility = "hidden";
+    break;
+  }
 }
 
 function changeCategory(target: EventTarget | null) {

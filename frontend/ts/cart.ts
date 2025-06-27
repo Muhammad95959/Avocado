@@ -43,6 +43,7 @@ for (let food of food_list) {
     totalElement.textContent = subtotal === 0 ? "$0" : `$${subtotal + 2}`;
     tr.remove();
     sessionStorage.removeItem(`cartItemsCount-${food._id}`);
+    handleCartDot();
   });
 }
 
@@ -55,4 +56,14 @@ function calculateTotalPrice() {
   }
   subTotalElement.textContent = `$${subtotal}`;
   totalElement.textContent = subtotal === 0 ? "$0" : `$${subtotal + 2}`;
+}
+
+function handleCartDot() {
+  const dot = document.querySelector(".cart-icon .dot") as HTMLDivElement;
+  for (let food of food_list) {
+    const cartItemsCount = sessionStorage.getItem(`cartItemsCount-${food._id}`);
+    if (cartItemsCount && +cartItemsCount > 0) dot.style.visibility = "visible";
+    else dot.style.visibility = "hidden";
+    break;
+  }
 }
