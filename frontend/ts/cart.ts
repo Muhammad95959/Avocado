@@ -58,6 +58,7 @@ function calculateTotalPrice() {
   totalElement.textContent = subtotal === 0 ? "$0" : `$${subtotal + 2}`;
 }
 
+handleCartDot()
 function handleCartDot() {
   const dot = document.querySelector(".cart-icon .dot") as HTMLDivElement;
   for (let food of food_list) {
