@@ -77,54 +77,49 @@
     </div>
     <!-- end navbar -->
 
-    <!-- start cart-items section -->
-    <div id="cart-items" class="cart-items">
+    <!-- start delivery section -->
+    <div id="delivery" class="delivery">
       <div class="container">
-        <table>
-          <thead>
-            <td>Items</td>
-            <td>Title</td>
-            <td>Price</td>
-            <td>Quantity</td>
-            <td>Total</td>
-            <td>Remove</td>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </div>
-    </div>
-    <!-- end cart-items section -->
-
-    <!-- start cart-totals -->
-    <div id="cart-totals" class="cart-totals">
-      <div class="container">
-        <div class="totals">
-          <h2>Cart Totals</h2>
-          <div class="row">
-            <p>Subtotal</p>
-            <p class="subtotal-price">$0</p>
+        <div class="left">
+          <h2>Delivery Information</h2>
+          <div>
+            <input type="text" placeholder="First name" />
+            <input type="text" placeholder="Last name" />
           </div>
-          <div class="row">
-            <p>Delivery Fee</p>
-            <p class="delivery-price">$2</p>
+          <input type="email" placeholder="Email Address" />
+          <input type="text" placeholder="Street" />
+          <div>
+            <input type="text" placeholder="City" />
+            <input type="text" placeholder="State" />
           </div>
-          <div class="row">
-            <p class="bold">Total</p>
-            <p class="total-price">$0</p>
+          <div>
+            <input type="number" placeholder="Zip code" />
+            <input type="text" placeholder="Country" />
           </div>
-          <a href="order.html">PROCEED TO CHECKOUT</a>
+          <input type="number" placeholder="Phone" />
         </div>
-        <div class="promo">
-          <p>if you have a promo code, Enter it here</p>
-          <div class="input">
-            <input type="text" placeholder="promo code" />
-            <button class="submit">Submit</button>
+        <div class="right">
+          <div class="totals">
+            <h2>Cart Totals</h2>
+            <div class="row">
+              <p>Subtotal</p>
+              <p class="subtotal-price">$0</p>
+            </div>
+            <div class="row">
+              <p>Delivery Fee</p>
+              <p class="delivery-price">$2</p>
+            </div>
+            <div class="row">
+              <p class="bold">Total</p>
+              <p class="total-price">$0</p>
+            </div>
+            <a>PROCEED TO PAYMENT</a>
           </div>
         </div>
       </div>
     </div>
-    <!-- end cart-totals -->
+    <!-- end delivery section -->
   </body>
   <script type="module" src="dist/utils/assets.js"></script>
-  <script type="module" src="dist/cart.js"></script>
+  <script type="module" src="dist/order.js"></script>
 </html>
