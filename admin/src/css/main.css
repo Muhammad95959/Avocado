@@ -163,3 +163,84 @@ hr {
   }
 }
 /* end add-items-content */
+
+/* start foods-list */
+.foods-list {
+  padding-left: 80px;
+  padding-top: 60px;
+  padding-right: 20px;
+  width: 70%;
+  @media (max-width: 768px) {
+    padding-left: 20px;
+    padding-top: 20px;
+    width: 100%;
+  }
+  h3 {
+    font-weight: 400;
+    color: #666;
+  }
+  .table {
+    width: 100%;
+    border: 1px solid #a9a9a9;
+    margin-top: 10px;
+    .head,
+    .row {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr 1.5fr 1fr 1fr 0.5fr;
+      align-items: center;
+      padding: 20px;
+    }
+    .head {
+      border-bottom: 1px solid #a9a9a9;
+    }
+    .row:not(:last-of-type) {
+      border-bottom: 1px solid #a9a9a9;
+    }
+    .row img {
+      width: 120px;
+    }
+    .action {
+      cursor: pointer;
+      width: fit-content;
+    }
+    @media (max-width: 1050px) {
+      .head {
+        display: none;
+      }
+    }
+    @media (max-width: 768px) {
+      .row {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+          "image name"
+          "category price"
+          "action action";
+        gap: 20px;
+        width: 100%;
+        text-align: center;
+        .image {
+          grid-area: image;
+          width: 100px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .name {
+          grid-area: name;
+        }
+        .category {
+          grid-area: category;
+        }
+        .price {
+          grid-area: price;
+        }
+        .action {
+          grid-area: action;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+    }
+  }
+}
+/* end foods-list */
