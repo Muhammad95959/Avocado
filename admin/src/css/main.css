@@ -183,6 +183,7 @@ hr {
     width: 100%;
     border: 1px solid #a9a9a9;
     margin-top: 10px;
+    margin-bottom: 20px;
     .head,
     .row {
       display: grid;

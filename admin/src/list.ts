@@ -10,7 +10,6 @@ axios.get(`${url}/api/v1/food/list`).then((response) => {
   const notyf = new Notyf({ duration: 5000 });
   if (response.data.success) {
     foodList = response.data.data as any[];
-    console.log(foodList);
     foodList.forEach((item) => {
       const row = document.createElement("div");
       row.classList.add("row");
