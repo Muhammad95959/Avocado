@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Food-Del Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="src/css/main.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- start navbar -->
+    <div class="navbar">
+      <div class="container">
+        <img src="src/assets/logo.png" />
+        <img src="src/assets/profile_image.png" />
+      </div>
+      <hr />
+    </div>
+    <!-- end navbar -->
+
+    <div class="page-content">
+      <!-- start sidebar -->
+      <div class="sidebar">
+        <a class="add active" href="index.html#">
+          <img src="src/assets/add_icon.png" />
+          <p>Add Items</p>
+        </a>
+        <a class="list" href="list.html#">
+          <img src="src/assets/order_icon.png" alt="" />
+          <p>List Items</p>
+        </a>
+        <a class="orders" href="orders.html#">
+          <img src="src/assets/order_icon.png" alt="" />
+          <p>Orders</p>
+        </a>
+      </div>
+      <!-- end sidebar -->
+
+      <!-- start add-items-content -->
+      <form class="add-items-form">
+        <div class="upload flex-col">
+          <p>Upload Image</p>
+          <label for="image">
+            <img src="src/assets/upload_area.png" />
+            <input name="image" type="file" id="image" hidden required />
+          </label>
+        </div>
+        <div class="name flex-col">
+          <p>Product name</p>
+          <input name="name" type="text" placeholder="Type here" required />
+        </div>
+        <div class="description flex-col">
+          <p>Product description</p>
+          <textarea name="description" rows="8" placeholder="Write content here" required></textarea>
+        </div>
+        <div class="row">
+          <div class="category flex-col">
+            <p>Product category</p>
+            <select name="category" required>
+              <option value="Salad">Salad</option>
+              <option value="Rolls">Rolls</option>
+              <option value="Deserts">Deserts</option>
+              <option value="Sandwich">Sandwich</option>
+              <option value="Cake">Cake</option>
+              <option value="Pure Veg">Pure Veg</option>
+              <option value="Pasta">Pasta</option>
+              <option value="Noodles">Noodles</option>
+            </select>
+          </div>
+          <div class="price flex-col">
+            <p>Product Price</p>
+            <input name="price" type="number" placeholder="$20" required/>
+          </div>
+        </div>
+        <input type="submit" value="ADD" />
+      </form>
+      <!-- end add-items-content -->
+    </div>
+  </body>
+  <script type="module" src="src/index.ts"></script>
+</html>

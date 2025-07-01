@@ -1,0 +1,165 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Outfit;
+  outline: none;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #fcfcfc;
+}
+
+a,
+button {
+  text-decoration: none;
+  color: inherit;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: #a9a9a9;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  @media (min-width: 768px) {
+    width: 750px;
+  }
+  @media (min-width: 992px) {
+    width: 970px;
+  }
+  @media (min-width: 1200px) {
+    width: 1170px;
+  }
+  @media (min-width: 1500px) {
+    width: 1470px;
+  }
+}
+
+/* start navbar */
+.navbar {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+/* end navbar */
+
+.page-content {
+  display: flex;
+}
+
+/* start sidebar */
+.page-content .sidebar {
+  padding-left: 60px;
+  padding-top: 60px;
+  width: 300px;
+  border-right: 1px solid #a9a9a9;
+  height: calc(100vh - 99px);
+  @media (max-width: 768px) {
+    width: 70px;
+    padding-left: 20px;
+    padding-top: 20px;
+  }
+  > a {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #a9a9a9;
+    border-right: none;
+    cursor: pointer;
+    p {
+      font-size: 20px;
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+    &.active {
+      background-color: rgba(255, 76, 36, 0.1);
+    }
+  }
+}
+/* end sidebar */
+
+/* start add-items-content */
+.page-content form.add-items-form {
+  padding-left: 80px;
+  padding-top: 60px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  flex: 1;
+  .flex-col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .row {
+    display: flex;
+    gap: 30px;
+  }
+  label {
+    width: fit-content;
+  }
+  p {
+    color: #666;
+    font-size: 18px;
+  }
+  input {
+    padding: 10px;
+    max-width: 500px;
+    font-size: 16px;
+  }
+  textarea {
+    padding: 10px;
+    max-width: 500px;
+    font-size: 16px;
+    resize: none;
+  }
+  select {
+    padding: 10px;
+    font-size: 16px;
+    width: 150px;
+  }
+  input[type="submit"] {
+    background-color: black;
+    color: white;
+    padding: 10px 0;
+    width: 150px;
+    cursor: pointer;
+  }
+  .upload img {
+    cursor: pointer;
+    width: 150px;
+  }
+  .price input {
+    width: 150px;
+  }
+  @media (max-width: 768px) {
+    padding-left: 20px;
+    padding-top: 20px;
+    p {
+      font-size: 15px;
+    }
+    select,
+    input[type="submit"],
+    .price input {
+      width: 120px;
+    }
+  }
+}
+/* end add-items-content */
