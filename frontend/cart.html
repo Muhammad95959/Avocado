@@ -21,12 +21,12 @@
           <img class="close-btn" src="src/assets/icon_cross.png" tabindex="0" />
         </div>
         <div class="inputs">
-          <input type="email" name="email" placeholder="Your email" />
-          <input type="password" name="password" placeholder="Your password" />
+          <input type="email" name="email" placeholder="Your email" required />
+          <input type="password" name="password" placeholder="Your password" required />
           <input type="submit" name="login" value="Login" />
         </div>
         <label for="login-privacy-policy">
-          <input type="checkbox" id="login-privacy-policy" />
+          <input type="checkbox" id="login-privacy-policy" required />
           <p>By continuing, I agree to the terms of use & privacy policy</p>
         </label>
         <p class="change">Create a new account? <span tabindex="0">Click here</span></p>
@@ -37,9 +37,9 @@
           <img class="close-btn" src="src/assets/icon_cross.png" tabindex="0" />
         </div>
         <div class="inputs">
-          <input type="text" name="name" placeholder="Your name" />
-          <input type="email" name="email" placeholder="Your email" />
-          <input type="password" name="password" placeholder="Your password" />
+          <input type="text" name="name" placeholder="Your name" required/>
+          <input type="email" name="email" placeholder="Your email" required />
+          <input type="password" name="password" placeholder="Your password" required />
           <input type="submit" name="signup" value="Create account" />
         </div>
         <label for="signup-privacy-policy">
@@ -71,6 +71,17 @@
             <img src="src/assets/icon_basket.png" />
             <div class="dot"></div>
           </a>
+          <div class="user-icon">
+            <img class="icon-profile" src="src/assets/icon_profile.png" tabindex="0" />
+            <div class="popup hidden">
+              <p class="welcome">Welcome</p>
+              <hr />
+              <div class="logout" tabindex="0">
+                <img class="icon-logout" src="src/assets/icon_logout.png" />
+                <span>Logout</span>
+              </div>
+            </div>
+          </div>
           <button class="sign-in-btn">sign in</button>
         </div>
       </div>

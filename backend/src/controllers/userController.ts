@@ -16,7 +16,7 @@ export async function registerUser(req: Request, res: Response) {
     const newUser = new userModel({ name, email, password });
     const user = await newUser.save();
     const token = createToken(user._id);
-    res.json({ success: true, token });
+    res.json({ success: true, name, token });
   } catch (error) {
     console.log(error);
     res.json({ success: false, message: (error as Error).message });
@@ -31,7 +31,7 @@ export async function loginUser(req: Request, res: Response) {
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.json({ success: false, message: "Invalid password" });
     const token = createToken(user._id);
-    res.json({ success: true, token });
+    res.json({ success: true, name: user.name, token });
   } catch (error) {
     console.log(error);
     res.json({ success: false, message: (error as Error).message });
