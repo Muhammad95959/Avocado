@@ -35,10 +35,10 @@ axios.get(`${url}/api/v1/food/list`).then((response) => {
       action.textContent = "X";
       row.appendChild(action);
       action.addEventListener("click", async (e) => {
-        const remove = e.target as HTMLParagraphElement;
-        remove.parentElement?.remove();
         const res = await axios.post(`${url}/api/v1/food/remove`, { id: item._id });
         if (res.data.success) {
+          const remove = e.target as HTMLParagraphElement;
+          remove.parentElement?.remove();
           notyf.success(res.data.message);
         } else {
           notyf.error(res.data.message);
