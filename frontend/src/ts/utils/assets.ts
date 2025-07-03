@@ -291,4 +291,3 @@ export const food_list = [
     category: "Noodles",
   },
 ];
-
