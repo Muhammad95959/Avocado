@@ -1,8 +1,11 @@
 import { food_list } from "./utils/assets";
+import handleCartDot from "./utils/handleCartDot";
 
 const subTotalElement = document.querySelector(".totals .subtotal-price") as HTMLParagraphElement;
 const totalElement = document.querySelector(".totals .total-price") as HTMLParagraphElement;
 let subtotal: number;
+
+handleCartDot();
 
 calculateTotalPrice();
 function calculateTotalPrice() {
@@ -13,15 +16,4 @@ function calculateTotalPrice() {
   }
   subTotalElement.textContent = `$${subtotal}`;
   totalElement.textContent = subtotal === 0 ? "$0" : `$${subtotal + 2}`;
-}
-
-handleCartDot()
-function handleCartDot() {
-  const dot = document.querySelector(".cart-icon .dot") as HTMLDivElement;
-  for (let food of food_list) {
-    const cartItemsCount = sessionStorage.getItem(`cartItemsCount-${food._id}`);
-    if (cartItemsCount && +cartItemsCount > 0) dot.style.visibility = "visible";
-    else dot.style.visibility = "hidden";
-    break;
-  }
 }
