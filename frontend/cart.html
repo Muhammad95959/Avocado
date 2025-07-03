@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
       rel="stylesheet"
     />
-    <link href="css/index.css" rel="stylesheet" />
+    <link href="src/css/main.css" rel="stylesheet" />
   </head>
   <body>
     <!-- start login popup -->
@@ -18,7 +18,7 @@
       <form action="#" class="login-form">
         <div class="row">
           <h2>Login</h2>
-          <img class="close-btn" src="assets/icon_cross.png" tabindex="0" />
+          <img class="close-btn" src="src/assets/icon_cross.png" tabindex="0" />
         </div>
         <div class="inputs">
           <input type="email" name="email" placeholder="Your email" />
@@ -34,7 +34,7 @@
       <form class="signup-form hidden">
         <div class="row">
           <h2>Sign Up</h2>
-          <img class="close-btn" src="assets/icon_cross.png" tabindex="0" />
+          <img class="close-btn" src="src/assets/icon_cross.png" tabindex="0" />
         </div>
         <div class="inputs">
           <input type="text" name="name" placeholder="Your name" />
@@ -55,7 +55,7 @@
     <div id="navbar" class="navbar">
       <div class="container">
         <div class="logo">
-          <img src="assets/logo.png" />
+          <img src="src/assets/logo.png" />
         </div>
         <ul class="navbar-menu">
           <li><a href="index.html#navbar">home</a></li>
@@ -65,10 +65,10 @@
         </ul>
         <div class="right-side">
           <div class="search-icon">
-            <img src="assets/icon_search.png" tabindex="0" />
+            <img src="src/assets/icon_search.png" tabindex="0" />
           </div>
           <a class="cart-icon" href="cart.html">
-            <img src="assets/icon_basket.png" />
+            <img src="src/assets/icon_basket.png" />
             <div class="dot"></div>
           </a>
           <button class="sign-in-btn">sign in</button>
@@ -130,16 +130,16 @@
       <div class="container">
         <div class="row">
           <div class="column-one">
-            <img src="assets/logo.png" />
+            <img src="src/assets/logo.png" />
             <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt minima itaque
               voluptas maxime. Iusto quis vitae sed nisi molestias ab, obcaecati libero similique
               voluptatum voluptates, magni a incidunt officiis officia?
             </p>
             <div class="social">
-              <img src="assets/icon_facebook.png" />
-              <img src="assets/icon_twitter.png" />
-              <img src="assets/icon_linkedin.png" />
+              <img src="src/assets/icon_facebook.png" />
+              <img src="src/assets/icon_twitter.png" />
+              <img src="src/assets/icon_linkedin.png" />
             </div>
           </div>
           <div class="column-two">
@@ -166,6 +166,5 @@
     </div>
     <!-- end footer -->
   </body>
-  <script type="module" src="dist/utils/assets.js"></script>
-  <script type="module" src="dist/cart.js"></script>
+  <script type="module" src="src/ts/cart.ts"></script>
 </html>

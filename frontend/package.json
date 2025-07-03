@@ -1,5 +1,18 @@
 {
+  "name": "frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "start": "find ts -type f -name '*.ts' | entr -r sh -c 'tsc && find dist -type f -name \"*.js\" | xargs sed -i \"s|\\(import.*from \\\"\\)\\([^\\\"]*\\)\\(.*\\)|\\1\\2.js\\\";|\"'"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "~5.8.3",
+    "vite": "^7.0.0"
+  },
+  "dependencies": {
+    "axios": "^1.10.0"
   }
 }

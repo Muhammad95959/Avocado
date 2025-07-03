@@ -89,7 +89,7 @@ function addTopDishes() {
     imgContainer.appendChild(img);
     const addIcon = document.createElement("img");
     addIcon.classList.add("add");
-    addIcon.src = "../assets/icon_add_white.png";
+    addIcon.src = "src/assets/icon_add_white.png";
     addIcon.tabIndex = 0;
     if (card.dataset.cartItemsCount !== "0") addIcon.classList.add("hidden");
     imgContainer.appendChild(addIcon);
@@ -99,7 +99,7 @@ function addTopDishes() {
     imgContainer.appendChild(cartHandler);
     const decIcon = document.createElement("img");
     decIcon.classList.add("dec");
-    decIcon.src = "../assets/icon_remove_red.png";
+    decIcon.src = "src/assets/icon_remove_red.png";
     decIcon.tabIndex = 0;
     cartHandler.appendChild(decIcon);
     const cartItemsCount = document.createElement("p");
@@ -108,7 +108,7 @@ function addTopDishes() {
     cartHandler.appendChild(cartItemsCount);
     const incIcon = document.createElement("img");
     incIcon.classList.add("inc");
-    incIcon.src = "../assets/icon_add_green.png";
+    incIcon.src = "src/assets/icon_add_green.png";
     incIcon.tabIndex = 0;
     cartHandler.appendChild(incIcon);
     const info = document.createElement("div");
@@ -122,7 +122,7 @@ function addTopDishes() {
     name.textContent = val.name;
     row.appendChild(name);
     const ratingImg = document.createElement("img");
-    ratingImg.src = "../assets/rating_starts.png";
+    ratingImg.src = "src/assets/rating_starts.png";
     row.appendChild(ratingImg);
     const desc = document.createElement("p");
     desc.classList.add("description");
