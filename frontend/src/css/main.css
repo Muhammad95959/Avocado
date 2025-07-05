@@ -294,7 +294,8 @@ button {
           display: none;
         }
       }
-      button.view-menu-btn {
+      a.view-menu-btn {
+        display: inline-block;
         margin-top: 30px;
         padding: 18px 42px;
         font-size: 20px;
