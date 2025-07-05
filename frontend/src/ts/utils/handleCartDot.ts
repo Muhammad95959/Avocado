@@ -1,8 +1,13 @@
-import { food_list } from "./assets";
+import type IFood from "../interfaces/IFood";
+import axios from "axios";
 
-export default function handleCartDot() {
+const url="http://localhost:4000";
+
+export default async function handleCartDot() {
   const dot = document.querySelector(".cart-icon .dot") as HTMLDivElement;
-  for (let food of food_list) {
+  const response = await axios.get(`${url}/api/v1/food/list`);
+  const foodList = response.data.data as IFood[];
+  for (let food of foodList) {
     const cartItemsCount = sessionStorage.getItem(`cartItemsCount-${food._id}`);
     if (cartItemsCount && +cartItemsCount > 0) {
       dot.style.visibility = "visible";
@@ -11,4 +16,3 @@ export default function handleCartDot() {
   }
   dot.style.visibility = "hidden";
 }
-

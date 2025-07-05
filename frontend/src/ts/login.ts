@@ -1,6 +1,7 @@
 import axios from "axios";
 import "notyf/notyf.min.css";
 import { Notyf } from "notyf";
+import type IFood from "./interfaces/IFood";
 
 const loginPopup = document.querySelector(".login-popup") as HTMLDivElement;
 const loginCloseBtns = [
@@ -53,14 +54,11 @@ loginBtn?.addEventListener("click", async (e) => {
   const emailInput = document.querySelector(
     '.login-form .inputs input[name="email"]',
   ) as HTMLInputElement;
-  console.log(emailInput);
   const email = emailInput.value;
-  console.log(emailInput.value);
   const passwordInput = document.querySelector(
     '.login-form .inputs input[name="password"]',
   ) as HTMLInputElement;
   const password = passwordInput.value;
-  console.log(email, password);
   try {
     const response = await axios.post(`${url}/api/v1/users/login`, { email, password });
     if (response.data.success) {
@@ -72,6 +70,7 @@ loginBtn?.addEventListener("click", async (e) => {
       loginPopup.classList.add("hidden");
       userIconPopup.classList.add("hidden");
       handleUserIcon();
+      uploadCartDataToDatabase();
     } else notyf.error(response.data.message);
   } catch (error) {
     console.log(error);
@@ -105,6 +104,7 @@ signupBtn?.addEventListener("click", async (e) => {
       loginPopup.classList.add("hidden");
       userIconPopup.classList.add("hidden");
       handleUserIcon();
+      uploadCartDataToDatabase();
     } else notyf.error(response.data.message);
   } catch (error) {
     console.log(error);
@@ -113,7 +113,6 @@ signupBtn?.addEventListener("click", async (e) => {
 
 handleUserIcon();
 function handleUserIcon() {
-  console.log("executed");
   if (localStorage.getItem("token")) {
     signInBtn.style.display = "none";
     userIcon.style.display = "initial";
@@ -122,5 +121,28 @@ function handleUserIcon() {
   } else {
     signInBtn.style.display = "initial";
     userIcon.style.display = "none";
+  }
+}
+
+async function uploadCartDataToDatabase() {
+  const response = await axios.get(`${url}/api/v1/food/list`);
+  if (response.data.success) {
+    const cartData: Record<string, string> = {};
+    const foodList = response.data.data as IFood[];
+    foodList.forEach((food) => {
+      const itemCount = sessionStorage.getItem(`cartItemsCount-${food._id}`);
+      if (itemCount) {
+        cartData[food._id] = itemCount;
+      }
+    });
+    const token = localStorage.getItem("token");
+    const res = await axios.patch(
+      `${url}/api/v1/cart/update`,
+      { cartData },
+      { headers: { token } },
+    );
+    if (!res.data.success) notyf.error(response.data.message);
+  } else {
+    notyf.error(response.data.message);
   }
 }

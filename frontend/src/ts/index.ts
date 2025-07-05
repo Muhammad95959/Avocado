@@ -1,10 +1,14 @@
-import { menu_list, food_list } from "./utils/assets";
+import type IFood from "./interfaces/IFood";
+import { menu_list } from "./utils/assets";
 import handleCartDot from "./utils/handleCartDot";
+import axios from "axios";
 
 const navbarMenuItems = [...document.querySelectorAll(".navbar-menu li")] as HTMLLIElement[];
 const menuChoices = document.querySelector(".menu-choices") as HTMLDivElement;
 const topDishesCardsContainer = document.querySelector(".top-dishes .cards") as HTMLDivElement;
+const url = "http://localhost:4000";
 let category = "All";
+let pageRefreshed = true;
 
 handleCartDot();
 
@@ -47,8 +51,24 @@ menu_list.forEach((val) => {
 
 // dynamically add top dishes
 addTopDishes();
-function addTopDishes() {
-  food_list.forEach((val) => {
+async function addTopDishes() {
+  const token = localStorage.getItem("token");
+  let foodList: IFood[];
+  const foodListStr = sessionStorage.getItem("foodList");
+  if (!foodListStr || pageRefreshed) {
+    const res1 = await axios.get(`${url}/api/v1/food/list`);
+    foodList = res1.data.data as IFood[];
+    sessionStorage.setItem("foodList", JSON.stringify(foodList));
+    pageRefreshed = false;
+    if (token) {
+      const res2 = await axios.get(`${url}/api/v1/cart/get`, { headers: { token } });
+      const cartData = res2.data.cartData as Record<string, string>;
+      for (const id in cartData) {
+        sessionStorage.setItem(`cartItemsCount-${id}`, cartData[id]);
+      }
+    }
+  } else foodList = JSON.parse(foodListStr);
+  foodList.forEach((val) => {
     const card = document.createElement("div");
     card.classList.add("card");
     card.dataset.cartItemsCount = sessionStorage.getItem(`cartItemsCount-${val._id}`) || "0";
@@ -60,7 +80,7 @@ function addTopDishes() {
     card.appendChild(imgContainer);
     const img = document.createElement("img");
     img.classList.add("dish-photo");
-    img.src = val.image;
+    img.src = `${url}/images/${val.image}`;
     imgContainer.appendChild(img);
     const addIcon = document.createElement("img");
     addIcon.classList.add("add");
@@ -107,15 +127,21 @@ function addTopDishes() {
     price.classList.add("price");
     info.appendChild(price);
     price.textContent = `$${val.price}`;
-    addIcon.addEventListener("click", () => {
+    addIcon.addEventListener("click", async () => {
       card.dataset.cartItemsCount = "1";
       addIcon.classList.add("hidden");
       cartHandler.classList.remove("hidden");
       cartItemsCount.textContent = "1";
       sessionStorage.setItem(`cartItemsCount-${val._id}`, "1");
       handleCartDot();
+      if (token)
+        await axios.post(
+          `${url}/api/v1/cart/add`,
+          { itemId: val._id },
+          { headers: { token: localStorage.getItem("token") } },
+        );
     });
-    decIcon.addEventListener("click", () => {
+    decIcon.addEventListener("click", async () => {
       if (card.dataset.cartItemsCount === "1") {
         addIcon.classList.remove("hidden");
         cartHandler.classList.add("hidden");
@@ -127,12 +153,24 @@ function addTopDishes() {
         sessionStorage.setItem(`cartItemsCount-${val._id}`, card.dataset.cartItemsCount);
       }
       handleCartDot();
+      if (token)
+        await axios.post(
+          `${url}/api/v1/cart/remove`,
+          { itemId: val._id },
+          { headers: { token: localStorage.getItem("token") } },
+        );
     });
-    incIcon.addEventListener("click", () => {
+    incIcon.addEventListener("click", async () => {
       card.dataset.cartItemsCount = String(parseInt(card.dataset.cartItemsCount as string) + 1);
       cartItemsCount.textContent = card.dataset.cartItemsCount;
       sessionStorage.setItem(`cartItemsCount-${val._id}`, card.dataset.cartItemsCount);
       handleCartDot();
+      if (token)
+        await axios.post(
+          `${url}/api/v1/cart/add`,
+          { itemId: val._id },
+          { headers: { token: localStorage.getItem("token") } },
+        );
     });
   });
 }
