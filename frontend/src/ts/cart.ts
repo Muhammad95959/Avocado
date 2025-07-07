@@ -1,10 +1,13 @@
 import type IFood from "./interfaces/IFood";
 import handleCartDot from "./utils/handleCartDot";
 import axios from "axios";
+import "notyf/notyf.min.css";
+import { Notyf } from "notyf";
 
 const tableBody = document.querySelector(".cart-items table tbody") as HTMLTableElement;
 const subTotalElement = document.querySelector(".totals .subtotal-price") as HTMLParagraphElement;
 const totalElement = document.querySelector(".totals .total-price") as HTMLParagraphElement;
+const proceedBtn = document.querySelector(".totals .proceed-btn");
 const url = "http://localhost:4000";
 let subtotal: number;
 let cartData: Record<string, string> = {};
@@ -80,3 +83,10 @@ function calculateTotalPrice() {
   subTotalElement.textContent = `$${subtotal}`;
   totalElement.textContent = subtotal === 0 ? "$0" : `$${subtotal + 2}`;
 }
+
+proceedBtn?.addEventListener("click", (e) => {
+  if (subtotal === 0) {
+    new Notyf({ duration: 3000 }).error("No Items");
+    e.preventDefault();
+  }
+});

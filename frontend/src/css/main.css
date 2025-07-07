@@ -47,6 +47,12 @@ button {
   }
 }
 
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 /* start navbar */
 .navbar {
   .container {
@@ -639,57 +645,59 @@ button {
   margin-top: 80px;
   margin-bottom: 80px;
   .container {
-    display: flex;
-    justify-content: space-between;
-    .left {
-      width: 45%;
-      display: grid;
-      gap: 10px;
-      h2 {
-        font-size: 30px;
-        margin-bottom: 40px;
-        font-weight: bold;
-      }
-      > div {
-        display: flex;
+    form {
+      display: flex;
+      justify-content: space-between;
+      .left {
+        width: 45%;
+        display: grid;
         gap: 10px;
-      }
-      input {
-        width: 100%;
-        border: 1px solid #ddd;
-        padding: 10px;
-        border-radius: 6px;
-      }
-    }
-    .right {
-      width: 45%;
-      .totals {
         h2 {
-          font-weight: bold;
           font-size: 30px;
-          margin-bottom: 10px;
+          margin-bottom: 40px;
+          font-weight: bold;
         }
-        .row {
-          padding: 10px 0;
-          font-size: 18px;
-          color: #777;
+        > div {
           display: flex;
-          justify-content: space-between;
-          &:not(:last-of-type) {
-            border-bottom: 1px solid #ddd;
-          }
+          gap: 10px;
         }
-        a {
-          display: inline-block;
-          background-color: rgba(255, 76, 36, 1);
-          border: none;
-          color: white;
-          font-size: 16px;
-          padding: 15px 40px;
+        input {
+          width: 100%;
+          border: 1px solid #ddd;
+          padding: 10px;
           border-radius: 6px;
-          margin-top: 10px;
-          &:hover {
-            background-color: #f32;
+        }
+      }
+      .right {
+        width: 45%;
+        .totals {
+          h2 {
+            font-weight: bold;
+            font-size: 30px;
+            margin-bottom: 10px;
+          }
+          .row {
+            padding: 10px 0;
+            font-size: 18px;
+            color: #777;
+            display: flex;
+            justify-content: space-between;
+            &:not(:last-of-type) {
+              border-bottom: 1px solid #ddd;
+            }
+          }
+          button.payment-btn {
+            display: inline-block;
+            background-color: rgba(255, 76, 36, 1);
+            border: none;
+            color: white;
+            font-size: 16px;
+            padding: 15px 40px;
+            border-radius: 6px;
+            margin-top: 10px;
+            &:hover {
+              background-color: #f32;
+            }
           }
         }
       }
@@ -697,3 +705,19 @@ button {
   }
 }
 /* end delivery section */
+
+/* start verify section */
+.verify {
+  min-height: 50vh;
+  display: grid;
+  .spinner {
+    width: 100px;
+    height: 100px;
+    place-self: center;
+    border: 5px solid #bdbdbd;
+    border-top-color: rgba(255, 76, 36, 1);
+    border-radius: 50%;
+    animation: rotate 1s infinite
+  }
+}
+/* end verify section */

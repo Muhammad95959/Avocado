@@ -1,0 +1,11 @@
+import axios from "axios";
+
+const url = "http://localhost:4000";
+const success = new URLSearchParams(window.location.search).get("success");
+const orderId = new URLSearchParams(window.location.search).get("orderId");
+const token = localStorage.getItem("token");
+
+const response = await axios.post(`${url}/api/v1/order/verify`, { success, orderId }, {headers: {token}});
+
+if (response.data.success) window.location.replace("myorders.html");
+else window.location.replace("index.html");
