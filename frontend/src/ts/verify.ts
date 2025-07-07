@@ -7,5 +7,7 @@ const token = localStorage.getItem("token");
 
 const response = await axios.post(`${url}/api/v1/order/verify`, { success, orderId }, { headers: { token } });
 
-if (response.data.success) window.location.replace("myorders.html");
-else window.location.replace("index.html");
+if (response.data.success) {
+  sessionStorage.clear();
+  window.location.replace("myorders.html");
+} else window.location.replace("index.html");

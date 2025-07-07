@@ -59,7 +59,6 @@ infoForm.addEventListener("submit", async (e) => {
   );
   console.log(response);
   if (response.data.success) {
-    sessionStorage.clear();
     const session_url = response.data.session_url;
     window.location.replace(session_url);
   } else alert("Error");
