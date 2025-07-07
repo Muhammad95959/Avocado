@@ -6,12 +6,8 @@ const addItemsForm = document.querySelector("form.add-items-form") as HTMLFormEl
 const uploadImage = document.querySelector(".add-items-form .upload img") as HTMLImageElement;
 const uploadInput = document.querySelector(".add-items-form .upload input") as HTMLInputElement;
 const nameInput = document.querySelector(".add-items-form .name input") as HTMLInputElement;
-const descTextarea = document.querySelector(
-  ".add-items-form .description textarea",
-) as HTMLTextAreaElement;
-const categorySelect = document.querySelector(
-  ".add-items-form .category select",
-) as HTMLSelectElement;
+const descTextarea = document.querySelector(".add-items-form .description textarea") as HTMLTextAreaElement;
+const categorySelect = document.querySelector(".add-items-form .category select") as HTMLSelectElement;
 const priceInput = document.querySelector(".add-items-form .price input") as HTMLInputElement;
 
 uploadInput.addEventListener("change", (e) => {

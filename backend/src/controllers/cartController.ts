@@ -44,11 +44,7 @@ export async function getCart(req: Request, res: Response) {
 
 export async function updateCartData(req: Request, res: Response) {
   try {
-    const user = await userModel.findByIdAndUpdate(
-      req.body.userId,
-      { cartData: req.body.cartData },
-      { new: true },
-    );
+    const user = await userModel.findByIdAndUpdate(req.body.userId, { cartData: req.body.cartData }, { new: true });
     if (!user) throw new Error("User not found");
     res.json({ success: true, message: "Cart data was updated successfully" });
   } catch (error) {

@@ -63,11 +63,7 @@ for (let food of foodList) {
     delete cartData[food._id];
     const token = localStorage.getItem("token");
     if (token) {
-      const response = await axios.patch(
-        `${url}/api/v1/cart/update`,
-        { cartData },
-        { headers: { token } },
-      );
+      const response = await axios.patch(`${url}/api/v1/cart/update`, { cartData }, { headers: { token } });
       console.log(response);
     }
   });

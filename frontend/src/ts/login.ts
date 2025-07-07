@@ -4,15 +4,9 @@ import { Notyf } from "notyf";
 import type IFood from "./interfaces/IFood";
 
 const loginPopup = document.querySelector(".login-popup") as HTMLDivElement;
-const loginCloseBtns = [
-  ...document.querySelectorAll(".login-popup .close-btn"),
-] as HTMLImageElement[];
-const loginPopupSubmitBtns = [
-  ...document.querySelectorAll(".login-popup input[type='submit']"),
-] as HTMLInputElement[];
-const changeLoginPopupStateBtns = [
-  ...document.querySelectorAll(".login-popup .change span"),
-] as HTMLSpanElement[];
+const loginCloseBtns = [...document.querySelectorAll(".login-popup .close-btn")] as HTMLImageElement[];
+const loginPopupSubmitBtns = [...document.querySelectorAll(".login-popup input[type='submit']")] as HTMLInputElement[];
+const changeLoginPopupStateBtns = [...document.querySelectorAll(".login-popup .change span")] as HTMLSpanElement[];
 const loginForm = document.querySelector(".login-popup .login-form") as HTMLFormElement;
 const signInBtn = document.querySelector(".navbar .sign-in-btn") as HTMLButtonElement;
 const signupForm = document.querySelector(".login-popup .signup-form") as HTMLFormElement;
@@ -25,12 +19,8 @@ const url = "http://localhost:4000";
 const notyf = new Notyf({ duration: 3000 });
 
 signInBtn.addEventListener("click", () => loginPopup.classList.remove("hidden"));
-loginPopupSubmitBtns.forEach((val) =>
-  val.addEventListener("click", () => loginPopup.classList.remove("hidden")),
-);
-loginCloseBtns.forEach((val) =>
-  val.addEventListener("click", () => loginPopup.classList.add("hidden")),
-);
+loginPopupSubmitBtns.forEach((val) => val.addEventListener("click", () => loginPopup.classList.remove("hidden")));
+loginCloseBtns.forEach((val) => val.addEventListener("click", () => loginPopup.classList.add("hidden")));
 changeLoginPopupStateBtns.forEach((val) =>
   val.addEventListener("click", () => {
     loginForm.classList.toggle("hidden");
@@ -51,13 +41,9 @@ logoutBtn.addEventListener("click", () => {
 loginBtn?.addEventListener("click", async (e) => {
   e.preventDefault();
   if (!loginForm.reportValidity()) return;
-  const emailInput = document.querySelector(
-    '.login-form .inputs input[name="email"]',
-  ) as HTMLInputElement;
+  const emailInput = document.querySelector('.login-form .inputs input[name="email"]') as HTMLInputElement;
   const email = emailInput.value;
-  const passwordInput = document.querySelector(
-    '.login-form .inputs input[name="password"]',
-  ) as HTMLInputElement;
+  const passwordInput = document.querySelector('.login-form .inputs input[name="password"]') as HTMLInputElement;
   const password = passwordInput.value;
   try {
     const response = await axios.post(`${url}/api/v1/users/login`, { email, password });
@@ -80,17 +66,11 @@ loginBtn?.addEventListener("click", async (e) => {
 signupBtn?.addEventListener("click", async (e) => {
   e.preventDefault();
   if (!signupForm.reportValidity()) return;
-  const nameInput = document.querySelector(
-    '.signup-form .inputs input[name="name"]',
-  ) as HTMLInputElement;
+  const nameInput = document.querySelector('.signup-form .inputs input[name="name"]') as HTMLInputElement;
   const name = nameInput.value;
-  const emailInput = document.querySelector(
-    '.signup-form .inputs input[name="email"]',
-  ) as HTMLInputElement;
+  const emailInput = document.querySelector('.signup-form .inputs input[name="email"]') as HTMLInputElement;
   const email = emailInput.value;
-  const passwordInput = document.querySelector(
-    '.signup-form .inputs input[name="password"]',
-  ) as HTMLInputElement;
+  const passwordInput = document.querySelector('.signup-form .inputs input[name="password"]') as HTMLInputElement;
   const password = passwordInput.value;
   try {
     const response = await axios.post(`${url}/api/v1/users/register`, { name, email, password });
@@ -136,11 +116,7 @@ async function uploadCartDataToDatabase() {
       }
     });
     const token = localStorage.getItem("token");
-    const res = await axios.patch(
-      `${url}/api/v1/cart/update`,
-      { cartData },
-      { headers: { token } },
-    );
+    const res = await axios.patch(`${url}/api/v1/cart/update`, { cartData }, { headers: { token } });
     if (!res.data.success) notyf.error(response.data.message);
   } else {
     notyf.error(response.data.message);

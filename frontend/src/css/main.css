@@ -717,7 +717,7 @@ button {
     border: 5px solid #bdbdbd;
     border-top-color: rgba(255, 76, 36, 1);
     border-radius: 50%;
-    animation: rotate 1s infinite
+    animation: rotate 1s infinite;
   }
 }
 /* end verify section */

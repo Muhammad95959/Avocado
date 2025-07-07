@@ -1,7 +1,7 @@
 import type IFood from "../interfaces/IFood";
 import axios from "axios";
 
-const url="http://localhost:4000";
+const url = "http://localhost:4000";
 
 export default async function handleCartDot() {
   const dot = document.querySelector(".cart-icon .dot") as HTMLDivElement;
