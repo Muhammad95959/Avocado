@@ -19,6 +19,12 @@ button {
   color: inherit;
 }
 
+h1,
+h2,
+b {
+  font-weight: bold;
+}
+
 .container {
   padding-left: 15px;
   padding-right: 15px;
@@ -149,11 +155,15 @@ button {
           &.hidden {
             display: none;
           }
+          .orders,
           .logout {
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 5px;
+            img {
+              width: 30px;
+            }
             &:hover {
               span {
                 color: #ff6347;
@@ -721,3 +731,60 @@ button {
   }
 }
 /* end verify section */
+
+/* start my-orders section */
+.my-orders {
+  min-height: 35vh;
+  margin-top: 60px;
+  .container {
+    display: grid;
+    .spinner {
+      width: 100px;
+      height: 100px;
+      place-self: center;
+      border: 5px solid #bdbdbd;
+      border-top-color: rgba(255, 76, 36, 1);
+      border-radius: 50%;
+      animation: rotate 1s infinite;
+      margin-top: 100px;
+    }
+    .orders {
+      margin-top: 40px;
+      .order {
+        border: 1px solid #888;
+        padding: 10px 20px;
+        display: grid;
+        grid-template-columns: 0.5fr 1.5fr 1fr 1fr 1fr 1fr;
+        gap: 10px;
+        align-items: center;
+        margin-top: 20px;
+        .status span {
+          color: rgba(255, 76, 36, 1);
+          padding-right: 5px;
+        }
+        button {
+          padding: 8px 16px;
+          font-size: 15px;
+          background-color: rgba(255, 76, 36, 0.1);
+          border: none;
+          border-radius: 6px;
+          &:hover {
+            background-color: rgba(255, 76, 36, 0.15);
+          }
+        }
+        @media (max-width: 920px) {
+          grid-template-columns: 1fr 1fr;
+          gap: 15px;
+          img {
+            grid-column: 1 / 3;
+            justify-self: center;
+          }
+          button {
+            grid-column: 1 / 3;
+          }
+        }
+      }
+    }
+  }
+}
+/* end my-orders section */

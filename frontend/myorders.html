@@ -58,7 +58,7 @@
           <li><a href="index.html#navbar">home</a></li>
           <li><a href="index.html#explore-menu">menu</a></li>
           <li><a>mobile-app</a></li>
-          <li><a href="index.html#footer">contact us</a></li>
+          <li><a href="#footer">contact us</a></li>
         </ul>
         <div class="right-side">
           <div class="search-icon">
@@ -90,44 +90,15 @@
     </div>
     <!-- end navbar -->
 
-    <!-- start header -->
-    <div class="header">
+    <!-- start my-orders section -->
+    <div id="my-orders" class="my-orders">
       <div class="container">
-        <div class="content">
-          <h1>Order your favourite food here</h1>
-          <p>
-            Choose from a diverse menu featuring a delectable array of dishes crafted with the finest ingredients and
-            culinary expertise. Our mision is to satisfy your cravings and elevate your dining experience, one delicious
-            meal at a time.
-          </p>
-          <a class="view-menu-btn" href="index.html#explore-menu">View Menu</a>
-        </div>
+        <h1>My Orders</h1>
+        <div class="spinner"></div>
+        <div class="orders"></div>
       </div>
     </div>
-    <!-- end header -->
-
-    <!-- start explore-menu section -->
-    <div id="explore-menu" class="explore-menu">
-      <div class="container">
-        <h2>Explore our menu</h2>
-        <p>
-          Choose from a diverse menu featuring a delectable array of dishes. Our mission is to satisfy your cravings and
-          elevate your dining experience, one delicious meal at a time.
-        </p>
-        <div class="menu-choices"></div>
-        <hr />
-      </div>
-    </div>
-    <!-- end explore-menu section -->
-
-    <!-- start top-dishes section -->
-    <div class="top-dishes">
-      <div class="container">
-        <h2>Top dishes near you</h2>
-        <div class="cards"></div>
-      </div>
-    </div>
-    <!-- end top-dishes section -->
+    <!-- end my-orders section -->
 
     <!-- start footer -->
     <div id="footer" class="footer">
@@ -170,6 +141,6 @@
     </div>
     <!-- end footer -->
   </body>
-  <script type="module" src="src/ts/index.ts"></script>
+  <script type="module" src="src/ts/myorders.ts"></script>
   <script type="module" src="src/ts/login.ts"></script>
 </html>
