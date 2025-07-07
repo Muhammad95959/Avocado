@@ -40,17 +40,17 @@ infoForm.addEventListener("submit", async (e) => {
     new Notyf({ duration: 3000 }).error("No Items");
     return;
   }
-  const firstName = (document.querySelector('input[name="firstName"]') as HTMLInputElement).value;
-  const lastName = (document.querySelector('input[name="lastName"]') as HTMLInputElement).value;
-  const email = (document.querySelector('input[name="email"]') as HTMLInputElement).value;
-  const street = (document.querySelector('input[name="street"]') as HTMLInputElement).value;
-  const city = (document.querySelector('input[name="city"]') as HTMLInputElement).value;
-  const state = (document.querySelector('input[name="state"]') as HTMLInputElement).value;
-  const zipCode = (document.querySelector('input[name="zipCode"]') as HTMLInputElement).value;
-  const country = (document.querySelector('input[name="country"]') as HTMLInputElement).value;
-  const phone = (document.querySelector('input[name="phone"]') as HTMLInputElement).value;
-  const address = { firstName, lastName, email, street, city, state, zipCode, country, phone };
-  alert(address.email);
+  const address = {
+    firstName: (document.querySelector('input[name="firstName"]') as HTMLInputElement).value,
+    lastName: (document.querySelector('input[name="lastName"]') as HTMLInputElement).value,
+    email: (document.querySelector('.delivery input[name="email"]') as HTMLInputElement).value,
+    street: (document.querySelector('input[name="street"]') as HTMLInputElement).value,
+    city: (document.querySelector('input[name="city"]') as HTMLInputElement).value,
+    state: (document.querySelector('input[name="state"]') as HTMLInputElement).value,
+    zipCode: (document.querySelector('input[name="zipCode"]') as HTMLInputElement).value,
+    country: (document.querySelector('input[name="country"]') as HTMLInputElement).value,
+    phone: (document.querySelector('input[name="phone"]') as HTMLInputElement).value,
+  };
   const token = localStorage.getItem("token");
   const response = await axios.post(
     `${url}/api/v1/order/place`,
