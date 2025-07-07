@@ -6,7 +6,6 @@ import Stripe from "stripe";
 if (!process.env.STRIPE_SECRET) throw new Error("STRIPE_SECRET env variable is not set");
 const stripe = new Stripe(process.env.STRIPE_SECRET);
 
-// placing user order for frontend
 export async function placeOrder(req: Request, res: Response) {
   const frontend_url = "http://localhost:5173";
   try {
@@ -18,7 +17,6 @@ export async function placeOrder(req: Request, res: Response) {
     });
     await newOrder.save();
     await userModel.findByIdAndUpdate(req.body.userId, { cartData: {} });
-    // TODO: replace any
     const line_items = req.body.items.map((item: any) => ({
       price_data: {
         currency: "usd",
@@ -58,6 +56,16 @@ export async function verifyOrder(req: Request, res: Response) {
       await orderModel.findByIdAndDelete(orderId);
       res.json({ success: false, message: "Not Paid" });
     }
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: (error as Error).message });
+  }
+}
+
+export async function userOrders(req: Request, res: Response) {
+  try {
+    const orders = await orderModel.find({ userId: req.body.userId });
+    res.json({ success: true, data: orders });
   } catch (error) {
     console.log(error);
     res.json({ success: false, message: (error as Error).message });
