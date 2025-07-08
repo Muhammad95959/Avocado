@@ -20,7 +20,7 @@ if (response.data.success) {
 }
 
 function createOrdersElements(orders: IOrder[]) {
-  orders.forEach((order) => {
+  orders.forEach((order, index) => {
     const orderElement = document.createElement("div");
     orderElement.classList.add("order");
     ordersElement.appendChild(orderElement);
@@ -47,5 +47,18 @@ function createOrdersElements(orders: IOrder[]) {
     const trackBtn = document.createElement("button");
     trackBtn.textContent = "Track Order";
     orderElement.appendChild(trackBtn);
+    trackBtn.addEventListener("click", async (e) => {
+      const response = await axios.get(`${url}/api/v1/order/userorders`, { headers: { token } });
+      const notyf = new Notyf({ duration: 3000 });
+      if (response.data.success) {
+        const statusElement = (e.target as HTMLButtonElement).parentElement?.querySelector(".status b") as HTMLDivElement;
+        const status = response.data.data[index].status;
+        statusElement.textContent = status;
+        notyf.success("Status updated successfully");
+      } else {
+        console.log(response.data.message);
+        notyf.error("Something went wrong");
+      }
+    });
   });
 }
