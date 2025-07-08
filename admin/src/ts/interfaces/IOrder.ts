@@ -1,4 +1,5 @@
 export default interface IOrder {
+  _id: string;
   userId: number;
   items: IFood[];
   amount: number;
