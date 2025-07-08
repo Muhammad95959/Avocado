@@ -81,3 +81,13 @@ export async function listOrders(req: Request, res: Response) {
     res.json({ success: false, message: (error as Error).message });
   }
 }
+
+export async function updateStatus(req: Request, res: Response) {
+  try {
+    await orderModel.findByIdAndUpdate(req.body.orderId, { status: req.body.status });
+    res.json({ success: true, message: "Status updated" });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: (error as Error).message });
+  }
+}
