@@ -117,7 +117,7 @@ async function addTopDishes() {
     name.textContent = val.name;
     row.appendChild(name);
     const ratingImg = document.createElement("img");
-    ratingImg.src = "src/assets/rating_starts.png";
+    ratingImg.src = "src/assets/rating_stars.png";
     row.appendChild(ratingImg);
     const desc = document.createElement("p");
     desc.classList.add("description");

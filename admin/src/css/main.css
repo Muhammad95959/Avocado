@@ -7,6 +7,10 @@
   scroll-behavior: smooth;
 }
 
+:root {
+  --main-color10: rgb(86 130 3 / 10%);
+}
+
 body {
   min-height: 100vh;
   background-color: #fcfcfc;
@@ -88,7 +92,7 @@ hr {
       margin-bottom: 20px;
     }
     &.active {
-      background-color: rgba(255, 76, 36, 0.1);
+      background-color: var(--main-color10);
     }
   }
 }
@@ -279,7 +283,7 @@ hr {
       select {
         padding: 15px 10px;
         width: 200px;
-        background-color: rgba(255, 76, 36, 0.1);;
+        background-color: var(--main-color10);
       }
       @media (max-width: 1200px) {
         grid-template-columns: 1fr 1fr 1fr;
