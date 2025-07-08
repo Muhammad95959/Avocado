@@ -71,3 +71,13 @@ export async function userOrders(req: Request, res: Response) {
     res.json({ success: false, message: (error as Error).message });
   }
 }
+
+export async function listOrders(req: Request, res: Response) {
+  try {
+    const orders = await orderModel.find();
+    res.json({ success: true, data: orders });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: (error as Error).message });
+  }
+}
