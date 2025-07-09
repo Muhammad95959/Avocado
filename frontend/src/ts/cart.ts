@@ -4,7 +4,7 @@ import axios from "axios";
 import "notyf/notyf.min.css";
 import { Notyf } from "notyf";
 
-const tableBody = document.querySelector(".cart-items table tbody") as HTMLTableElement;
+const table = document.querySelector(".cart-items .table") as HTMLTableElement;
 const subTotalElement = document.querySelector(".totals .subtotal-price") as HTMLParagraphElement;
 const totalElement = document.querySelector(".totals .total-price") as HTMLParagraphElement;
 const proceedBtn = document.querySelector(".totals .proceed-btn");
@@ -24,40 +24,25 @@ for (let food of foodList) {
   const cartItemsCount = sessionStorage.getItem(`cartItemsCount-${food._id}`);
   if (!cartItemsCount || cartItemsCount === "0") continue;
   cartData[food._id] = cartItemsCount;
-  const tr = document.createElement("tr");
-  tableBody.appendChild(tr);
-  const item = document.createElement("td");
-  item.classList.add("item");
-  tr.appendChild(item);
-  const img = document.createElement("img");
-  img.src = `${url}/images/${food.image}`;
-  item.appendChild(img);
-  const title = document.createElement("td");
-  title.classList.add("title");
-  title.textContent = food.name;
-  tr.appendChild(title);
-  const price = document.createElement("td");
-  price.classList.add("price");
-  price.textContent = `$${food.price}`;
-  tr.appendChild(price);
-  const quantity = document.createElement("td");
-  quantity.classList.add("quantity");
-  quantity.textContent = cartItemsCount;
-  tr.appendChild(quantity);
-  const total = document.createElement("td");
-  total.classList.add("total");
-  total.textContent = `$${+cartItemsCount * food.price}`;
-  tr.appendChild(total);
-  const remove = document.createElement("td");
-  remove.classList.add("remove");
-  remove.textContent = "x";
-  remove.tabIndex = 0;
-  tr.appendChild(remove);
+  table.appendChild(document.createElement("hr"));
+  const row = document.createElement("div");
+  table.appendChild(row);
+  row.classList.add("row");
+  row.innerHTML = `
+    <img src=${url}/images/${food.image} />
+    <p class="title">${food.name}</p>
+    <p class="price">$${food.price}</p>
+    <p class="quantity">${cartItemsCount}</p>
+    <p class="total">$${+cartItemsCount * food.price}</p>
+    <p class="remove">x</p>
+  `;
+  const remove = row.querySelector(".remove") as HTMLParagraphElement;
   remove.addEventListener("click", async () => {
     subtotal -= +cartItemsCount * food.price;
     subTotalElement.textContent = `$${subtotal}`;
     totalElement.textContent = subtotal === 0 ? "$0" : `$${subtotal + 2}`;
-    tr.remove();
+    (row.previousSibling as HTMLHRElement).remove();
+    row.remove();
     sessionStorage.removeItem(`cartItemsCount-${food._id}`);
     handleCartDot();
     delete cartData[food._id];

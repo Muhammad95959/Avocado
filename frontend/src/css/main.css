@@ -552,29 +552,47 @@ b {
 /* start cart-items */
 .cart-items {
   .container {
-    table {
+    .table {
       margin-top: 80px;
       width: 100%;
-      /* border-spacing: 0 30px; */
-      tr {
-        td {
-          font-size: 18px;
-          font-weight: 400;
-          padding: 10px 0;
-          border-bottom: 1px solid #ddd;
-          img {
-            width: 70px;
-          }
-          &.remove {
-            cursor: pointer;
-          }
+      display: grid;
+      gap: 20px;
+      .head,
+      .row {
+        display: grid;
+        grid-template-columns: 0.5fr 1.5fr 1fr 1fr 1fr 0.5fr;
+        align-items: center;
+        font-size: 18px;
+      }
+      .head {
+        color: #888;
+      }
+      .row {
+        img {
+          width: 80px;
+        }
+        .remove {
+          cursor: pointer;
+          width: fit-content;
         }
       }
-      thead {
-        td {
-          font-size: 18px;
-          color: #888;
-          padding-bottom: 30px;
+      @media (max-width: 920px) {
+        hr:first-of-type {
+          display: none;
+        }
+        .head {
+          display: none;
+        }
+        .row {
+          grid-template-columns: 1fr 1fr 1fr;
+          justify-items: center;
+          gap: 20px;
+          .title {
+            grid-column: 2 / 4;
+          }
+          .price {
+            display: none;
+          }
         }
       }
     }
@@ -649,6 +667,14 @@ b {
         }
       }
     }
+    @media (max-width: 920px) {
+      flex-direction: column;
+      gap: 80px;
+      .totals,
+      .promo {
+        width: 100%;
+      }
+    }
   }
 }
 /* end cart-totals */
@@ -718,10 +744,22 @@ b {
           }
         }
       }
+      @media (max-width: 920px) {
+        flex-direction: column;
+        gap: 40px;
+        .left,
+        .right {
+          width: 100%;
+        }
+      }
     }
   }
 }
 /* end delivery section */
+
+/* =================== */
+/* === verify.html === */
+/* =================== */
 
 /* start verify section */
 .verify {
@@ -738,6 +776,10 @@ b {
   }
 }
 /* end verify section */
+
+/* ===================== */
+/* === myorders.html === */
+/* ===================== */
 
 /* start my-orders section */
 .my-orders {
