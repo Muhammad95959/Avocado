@@ -39,10 +39,10 @@ export async function placeOrder(req: Request, res: Response) {
       success_url: `${frontend_url}/verify.html?success=true&orderId=${newOrder._id}`,
       cancel_url: `${frontend_url}/verify.html?success=false&orderId=${newOrder._id}`,
     });
-    res.json({ success: true, session_url: session.url });
+    res.status(201).json({ success: true, session_url: session.url });
   } catch (error) {
     console.log(error);
-    res.json({ success: false, message: (error as Error).message });
+    res.status(400).json({ success: false, message: (error as Error).message });
   }
 }
 
@@ -51,43 +51,43 @@ export async function verifyOrder(req: Request, res: Response) {
   try {
     if (success === "true") {
       await orderModel.findByIdAndUpdate(orderId, { payment: true });
-      res.json({ success: true, message: "Paid" });
+      res.status(200).json({ success: true, message: "Paid" });
     } else {
       await orderModel.findByIdAndDelete(orderId);
-      res.json({ success: false, message: "Not Paid" });
+      res.status(400).json({ success: false, message: "Not Paid" });
     }
   } catch (error) {
     console.log(error);
-    res.json({ success: false, message: (error as Error).message });
+    res.status(400).json({ success: false, message: (error as Error).message });
   }
 }
 
 export async function userOrders(req: Request, res: Response) {
   try {
     const orders = await orderModel.find({ userId: req.body.userId });
-    res.json({ success: true, data: orders });
+    res.status(200).json({ success: true, data: orders });
   } catch (error) {
     console.log(error);
-    res.json({ success: false, message: (error as Error).message });
+    res.status(500).json({ success: false, message: (error as Error).message });
   }
 }
 
 export async function listOrders(req: Request, res: Response) {
   try {
     const orders = await orderModel.find();
-    res.json({ success: true, data: orders });
+    res.status(200).json({ success: true, data: orders });
   } catch (error) {
     console.log(error);
-    res.json({ success: false, message: (error as Error).message });
+    res.status(500).json({ success: false, message: (error as Error).message });
   }
 }
 
 export async function updateStatus(req: Request, res: Response) {
   try {
     await orderModel.findByIdAndUpdate(req.body.orderId, { status: req.body.status });
-    res.json({ success: true, message: "Status updated" });
+    res.status(200).json({ success: true, message: "Status updated" });
   } catch (error) {
     console.log(error);
-    res.json({ success: false, message: (error as Error).message });
+    res.status(404).json({ success: false, message: (error as Error).message });
   }
 }

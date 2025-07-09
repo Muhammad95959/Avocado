@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 
 export default async function authMiddleware(req: Request, res: Response, next: NextFunction) {
   const token = req.headers.token as string;
-  if (!token) return res.json({ success: false, message: "Not authorized login again" });
+  if (!token) return res.status(401).json({ success: false, message: "Not authorized login again" });
   try {
     if (!process.env.JWT_SECRET) throw new Error("JWT_SECRET is missing");
     const token_decode = jwt.verify(token, process.env.JWT_SECRET);
@@ -11,6 +11,6 @@ export default async function authMiddleware(req: Request, res: Response, next: 
     next();
   } catch (error) {
     console.log(error);
-    res.json({ success: false, message: (error as Error).message });
+    res.status(400).json({ success: false, message: (error as Error).message });
   }
 }
