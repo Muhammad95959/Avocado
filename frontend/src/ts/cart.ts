@@ -66,8 +66,13 @@ function calculateTotalPrice() {
 }
 
 proceedBtn?.addEventListener("click", (e) => {
+  const notyf = new Notyf({ duration: 3000 });
   if (subtotal === 0) {
-    new Notyf({ duration: 3000 }).error("No Items");
     e.preventDefault();
+    notyf.error("No Items");
+  }
+  if (!localStorage.getItem("token")) {
+    e.preventDefault();
+    notyf.error("Please login first");
   }
 });
