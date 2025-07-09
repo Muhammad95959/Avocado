@@ -7,7 +7,7 @@ import cartRouter from "./routes/cartRoute";
 import orderRouter from "./routes/orderRoute";
 
 const app = express();
-const port = 4000;
+const port = process.env.PORT || 4000;
 
 connectDB();
 
@@ -26,3 +26,5 @@ app.get("/", (_req: Request, res: Response) => {
 app.listen(port, () => {
   console.log(`Server started on http://localhost:${port}`);
 });
+
+export default app;

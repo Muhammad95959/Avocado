@@ -7,8 +7,9 @@ if (!process.env.STRIPE_SECRET) throw new Error("STRIPE_SECRET env variable is n
 const stripe = new Stripe(process.env.STRIPE_SECRET);
 
 export async function placeOrder(req: Request, res: Response) {
-  const frontend_url = "http://localhost:5173";
   try {
+    const frontend_url = process.env.FRONTEND_URL;
+    if (!frontend_url) throw new Error("FRONTEND_URL environment variable is not set");
     const newOrder = new orderModel({
       userId: req.body.userId,
       items: req.body.items,
