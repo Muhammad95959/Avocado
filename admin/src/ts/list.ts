@@ -3,7 +3,7 @@ import "notyf/notyf.min.css";
 import { Notyf } from "notyf";
 
 const table = document.querySelector(".foods-list .table") as HTMLDivElement;
-const url = "http://localhost:4000";
+const url = "https://avocado-production-778f.up.railway.app";
 let foodList;
 
 axios.get(`${url}/api/v1/food/list`).then((response) => {

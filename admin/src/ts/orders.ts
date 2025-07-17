@@ -4,7 +4,7 @@ import "notyf/notyf.min.css";
 import { Notyf } from "notyf";
 
 const ordersContent = document.querySelector(".orders-content") as HTMLDivElement;
-const url = "http://localhost:4000";
+const url = "https://avocado-production-778f.up.railway.app";
 
 const response = await axios.get(`${url}/api/v1/order/list`);
 if (response.data.success) {

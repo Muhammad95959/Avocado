@@ -7,7 +7,7 @@ import { Notyf } from "notyf";
 const infoForm = document.querySelector(".delivery form") as HTMLFormElement;
 const subTotalElement = document.querySelector(".totals .subtotal-price") as HTMLParagraphElement;
 const totalElement = document.querySelector(".totals .total-price") as HTMLParagraphElement;
-const url = "http://localhost:4000";
+const url = "https://avocado-production-778f.up.railway.app";
 let subtotal: number;
 let items: IFood[] = [];
 

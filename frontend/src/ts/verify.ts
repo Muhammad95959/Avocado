@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://localhost:4000";
+const url = "https://avocado-production-778f.up.railway.app";
 const success = new URLSearchParams(window.location.search).get("success");
 const orderId = new URLSearchParams(window.location.search).get("orderId");
 const token = localStorage.getItem("token");
