@@ -1,3 +1,4 @@
+import parcel_icon from "../assets/parcel_icon.png";
 import type IOrder from "./interfaces/IOrder";
 import axios from "axios";
 import "notyf/notyf.min.css";
@@ -21,7 +22,7 @@ function createOrdersElements(orders: IOrder[]) {
     ordersContent.appendChild(orderElement);
     orderElement.classList.add("order");
     orderElement.innerHTML = `
-      <img src="src/assets/parcel_icon.png" />
+      <img src="${parcel_icon}" />
       <div class="info">
         <p class="items">${order.items.map((item) => `${item.name} x ${item.quantity}`).join(", ")}</p>
         <p class="name">${order.address.firstName} ${order.address.lastName}</p>
