@@ -1,3 +1,7 @@
+import icon_add_white from "../assets/icon_add_white.png"
+import icon_remove_red from "../assets/icon_remove_red.png"
+import icon_add_green from "../assets/icon_add_green.png"
+import rating_stars from "../assets/rating_stars.png"
 import type IFood from "./interfaces/IFood";
 import { menu_list } from "./utils/assets";
 import handleCartDot from "./utils/handleCartDot";
@@ -84,7 +88,7 @@ async function addTopDishes() {
     imgContainer.appendChild(img);
     const addIcon = document.createElement("img");
     addIcon.classList.add("add");
-    addIcon.src = "src/assets/icon_add_white.png";
+    addIcon.src = icon_add_white;
     addIcon.tabIndex = 0;
     if (card.dataset.cartItemsCount !== "0") addIcon.classList.add("hidden");
     imgContainer.appendChild(addIcon);
@@ -94,7 +98,7 @@ async function addTopDishes() {
     imgContainer.appendChild(cartHandler);
     const decIcon = document.createElement("img");
     decIcon.classList.add("dec");
-    decIcon.src = "src/assets/icon_remove_red.png";
+    decIcon.src = icon_remove_red;
     decIcon.tabIndex = 0;
     cartHandler.appendChild(decIcon);
     const cartItemsCount = document.createElement("p");
@@ -103,7 +107,7 @@ async function addTopDishes() {
     cartHandler.appendChild(cartItemsCount);
     const incIcon = document.createElement("img");
     incIcon.classList.add("inc");
-    incIcon.src = "src/assets/icon_add_green.png";
+    incIcon.src = icon_add_green;
     incIcon.tabIndex = 0;
     cartHandler.appendChild(incIcon);
     const info = document.createElement("div");
@@ -117,7 +121,7 @@ async function addTopDishes() {
     name.textContent = val.name;
     row.appendChild(name);
     const ratingImg = document.createElement("img");
-    ratingImg.src = "src/assets/rating_stars.png";
+    ratingImg.src = rating_stars;
     row.appendChild(ratingImg);
     const desc = document.createElement("p");
     desc.classList.add("description");

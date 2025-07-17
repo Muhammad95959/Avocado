@@ -1,3 +1,4 @@
+import icon_parcel from "../assets/icon_parcel.png"
 import axios from "axios";
 import "notyf/notyf.min.css";
 import { Notyf } from "notyf";
@@ -25,7 +26,7 @@ function createOrdersElements(orders: IOrder[]) {
     orderElement.classList.add("order");
     ordersElement.appendChild(orderElement);
     const img = document.createElement("img");
-    img.src = "src/assets/icon_parcel.png";
+    img.src = icon_parcel;
     orderElement.appendChild(img);
     const items = document.createElement("div");
     items.classList.add("items");
