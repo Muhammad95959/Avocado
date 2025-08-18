@@ -8,7 +8,7 @@ const table = document.querySelector(".cart-items .table") as HTMLTableElement;
 const subTotalElement = document.querySelector(".totals .subtotal-price") as HTMLParagraphElement;
 const totalElement = document.querySelector(".totals .total-price") as HTMLParagraphElement;
 const proceedBtn = document.querySelector(".totals .proceed-btn");
-const url = "https://avocado-production-778f.up.railway.app";
+const url = "http://localhost:4000";
 let subtotal: number;
 let cartData: Record<string, string> = {};
 

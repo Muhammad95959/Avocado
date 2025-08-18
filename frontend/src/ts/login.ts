@@ -15,7 +15,7 @@ const signupBtn = document.querySelector('.signup-form input[type="submit"]') as
 const userIcon = document.querySelector(".navbar .user-icon") as HTMLDivElement;
 const userIconPopup = document.querySelector(".navbar .user-icon .popup") as HTMLDivElement;
 const logoutBtn = document.querySelector(".navbar .user-icon .logout") as HTMLDivElement;
-const url = "https://avocado-production-778f.up.railway.app";
+const url = "http://localhost:4000";
 const notyf = new Notyf({ duration: 3000 });
 
 signInBtn.addEventListener("click", () => loginPopup.classList.remove("hidden"));

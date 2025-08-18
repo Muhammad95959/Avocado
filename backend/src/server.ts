@@ -24,7 +24,7 @@ app.get("/", (_req: Request, res: Response) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server started on https://avocado-production-778f.up.railway.app`);
+  console.log(`Server started on http://localhost:${port}`);
 });
 
 export default app;

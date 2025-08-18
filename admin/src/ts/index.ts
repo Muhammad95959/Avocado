@@ -19,7 +19,7 @@ uploadInput.addEventListener("change", (e) => {
 });
 
 addItemsForm.addEventListener("submit", async (e) => {
-  const url = "https://avocado-production-778f.up.railway.app";
+  const url = "http://localhost:4000";
   const imageFile = uploadInput.files?.[0];
   if (!imageFile) return console.log("No file selected");
   const name = nameInput.value;

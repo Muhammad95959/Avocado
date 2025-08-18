@@ -10,7 +10,7 @@ import axios from "axios";
 const navbarMenuItems = [...document.querySelectorAll(".navbar-menu li")] as HTMLLIElement[];
 const menuChoices = document.querySelector(".menu-choices") as HTMLDivElement;
 const topDishesCardsContainer = document.querySelector(".top-dishes .cards") as HTMLDivElement;
-const url = "https://avocado-production-778f.up.railway.app";
+const url = "http://localhost:4000";
 let category = "All";
 let pageRefreshed = true;
 

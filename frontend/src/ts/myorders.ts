@@ -5,7 +5,7 @@ import { Notyf } from "notyf";
 import type IOrder from "./interfaces/IOrder";
 
 const ordersElement = document.querySelector(".my-orders .orders") as HTMLDivElement;
-const url = "https://avocado-production-778f.up.railway.app";
+const url = "http://localhost:4000";
 const token = localStorage.getItem("token");
 
 if (!token) window.location.replace("index.html");
