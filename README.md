@@ -1,4 +1,5 @@
-# [Avocado](https://avocado-frontend.netlify.app)
+# Avocado
+## 🔴 The website is down for now
 ### **Avocado** is a food delivery website with a multi-page user interface and admin panel. It uses a backend API built with **Node.js**, **Express**, and **MongoDB**.
 ![2025-07-18_16-14](https://github.com/user-attachments/assets/963e723b-d082-49cc-9516-d6ad818060d3)
 
